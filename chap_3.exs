@@ -35,4 +35,12 @@ defmodule Chap3 do
   def subst(new, old, [hd|tl]) do
     [hd|subst(new, old, tl)]
   end
+
+  def subst_2(_new, _old_1, _old_2, []), do: []
+  def subst_2(new, old_1, old_2, [hd|tl]) when hd == old_1 or hd == old_2 do
+    [new|tl]
+  end
+  def subst_2(new, old_1, old_2, [hd|tl]) do
+    [hd|subst_2(new, old_1, old_2, tl)]
+  end
 end

@@ -89,13 +89,25 @@ defmodule Chap3Test do
     end
   end
 
-  defmodule SubStTest do
+  defmodule SubstTest do
     use ExUnit.Case, async: true
 
     test "substitutes the old element with the new one" do
       assert subst(2, 1, [1]) == [2]
 
       assert subst(:and, :with, [:icecream, :with, :fudge, :for, :dessert]) ==
+        [:icecream, :and, :fudge, :for, :dessert]
+    end
+  end
+
+  defmodule Subst2Test do
+    use ExUnit.Case, async: true
+
+    test "substitutes the new element with either of the two old ones" do
+      assert subst_2(2, 3, 1, [1]) == [2]
+
+      assert subst_2(:and, :with, :for,
+                   [:icecream, :with, :fudge, :for, :dessert]) ==
         [:icecream, :and, :fudge, :for, :dessert]
     end
   end
