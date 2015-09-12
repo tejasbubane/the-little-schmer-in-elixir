@@ -27,4 +27,12 @@ defmodule Chap3 do
   def insert_l(new, old, [hd|tl]) do
     [hd|insert_l(new, old, tl)]
   end
+
+  def subst(_new, _old, []), do: []
+  def subst(new, old, [hd|tl]) when old == hd do
+    [new|tl]
+  end
+  def subst(new, old, [hd|tl]) do
+    [hd|subst(new, old, tl)]
+  end
 end

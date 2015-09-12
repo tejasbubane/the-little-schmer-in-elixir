@@ -88,4 +88,15 @@ defmodule Chap3Test do
       assert insert_r(:d, :x, [:a, :b, :c]) == [:a, :b, :c]
     end
   end
+
+  defmodule SubStTest do
+    use ExUnit.Case, async: true
+
+    test "substitutes the old element with the new one" do
+      assert subst(2, 1, [1]) == [2]
+
+      assert subst(:and, :with, [:icecream, :with, :fudge, :for, :dessert]) ==
+        [:icecream, :and, :fudge, :for, :dessert]
+    end
+  end
 end
