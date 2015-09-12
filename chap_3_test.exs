@@ -50,4 +50,42 @@ defmodule Chap3Test do
         [[:five, :plums], :eleven, [:no]]
     end
   end
+
+  defmodule InsertRTest do
+    use ExUnit.Case, async: true
+
+    test "inserts the new element to the right of the old one" do
+      assert insert_r(2, 1, [1]) == [1, 2]
+
+      assert insert_r(:e, :d, [:a, :b, :c, :d, :f, :g, :h]) ==
+        [:a, :b, :c, :d, :e, :f, :g, :h]
+
+      assert insert_r(:topping, :fudge,
+                      [:icecream, :with, :fudge, :for, :dessert]) ==
+        [:icecream, :with, :fudge, :topping, :for, :dessert]
+    end
+
+    test "list returned as is if the old element does not exist" do
+      assert insert_r(:d, :x, [:a, :b, :c]) == [:a, :b, :c]
+    end
+  end
+
+  defmodule InsertLTest do
+    use ExUnit.Case, async: true
+
+    test "inserts new element to the left of the old one" do
+      assert insert_l(2, 1, [1]) == [2, 1]
+
+      assert insert_l(:e, :d, [:a, :b, :c, :d, :f, :g, :h]) ==
+        [:a, :b, :c, :e, :d, :f, :g, :h]
+
+      assert insert_l(:topping, :fudge,
+                      [:icecream, :with, :fudge, :for, :dessert]) ==
+        [:icecream, :with, :topping, :fudge, :for, :dessert]
+    end
+
+    test "list returned as is if the old element does not exist" do
+      assert insert_r(:d, :x, [:a, :b, :c]) == [:a, :b, :c]
+    end
+  end
 end

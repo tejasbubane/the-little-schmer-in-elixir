@@ -11,4 +11,20 @@ defmodule Chap3 do
   def firsts([hd|tl]) do
     [hd(hd)|firsts(tl)]
   end
+
+  def insert_r(_new, _old, []), do: []
+  def insert_r(new, old, [hd|tl]) when old == hd do
+    [old|[new|tl]]
+  end
+  def insert_r(new, old, [hd|tl]) do
+    [hd|insert_r(new, old, tl)]
+  end
+
+  def insert_l(_new, _old, []), do: []
+  def insert_l(new, old, [hd|tl]) when old == hd do
+    [new|[old|tl]]
+  end
+  def insert_l(new, old, [hd|tl]) do
+    [hd|insert_l(new, old, tl)]
+  end
 end
