@@ -28,4 +28,26 @@ defmodule Chap3Test do
       assert rember(:this, [:that]) == [:that]
     end
   end
+
+  defmodule FirstsTest do
+    use ExUnit.Case, async: true
+
+    test "get firsts of a list (of lists)" do
+      assert firsts([[:a, :b], [:c, :d], [:e, :f]]) ==
+        [:a, :c, :e]
+
+      assert firsts([[:apple, :peach, :pumpkin],
+                     [:plum, :pear, :cherry],
+                     [:grape, :raisi, :peas],
+                     [:bean, :carrot, :eggplant]]) ==
+        [:apple, :plum, :grape, :bean]
+    end
+
+    test "with nested lists" do
+      assert firsts([[[:five, :plums], :four],
+                     [:eleven, :green, :oranges],
+                     [[:no], :more]]) ==
+        [[:five, :plums], :eleven, [:no]]
+    end
+  end
 end
