@@ -111,4 +111,18 @@ defmodule Chap3Test do
         [:icecream, :and, :fudge, :for, :dessert]
     end
   end
+
+  defmodule MultiRemberTest do
+    use ExUnit.Case, async: true
+
+    test "remove all occurrences of given element" do
+      assert multi_rember(1, [1]) == []
+
+      assert multi_rember(1, [2, 1, 1, 2]) == [2, 2]
+
+      assert multi_rember(:cup, [:coffee, :cup, :tea, :cup,
+                                 :and, :hick, :cup]) ==
+        [:coffee, :tea, :and, :hick]
+    end
+  end
 end

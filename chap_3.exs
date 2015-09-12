@@ -43,4 +43,12 @@ defmodule Chap3 do
   def subst_2(new, old_1, old_2, [hd|tl]) do
     [hd|subst_2(new, old_1, old_2, tl)]
   end
+
+  def multi_rember(_atom, []), do: []
+  def multi_rember(atom, [hd|tl]) when hd == atom do
+    multi_rember(atom, tl)
+  end
+  def multi_rember(atom, [hd|tl]) do
+    [hd|multi_rember(atom, tl)]
+  end
 end
