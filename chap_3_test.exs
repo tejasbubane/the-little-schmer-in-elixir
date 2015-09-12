@@ -125,4 +125,30 @@ defmodule Chap3Test do
         [:coffee, :tea, :and, :hick]
     end
   end
+
+  defmodule MultiInsertRTest do
+    use ExUnit.Case, async: true
+
+    test "insert new element to right of all occurrences of old element" do
+      assert multi_insert_r(2, 1, [1]) == [1, 2]
+
+      assert multi_insert_r(2, 1, [4, 1, 1, 4]) == [4, 1, 2, 1, 2, 4]
+
+      assert multi_insert_r(:chips, :fried, [:potato, :fried, :and, :fried]) ==
+        [:potato, :fried, :chips, :and, :fried, :chips]
+    end
+  end
+
+  defmodule MultiInsertLTest do
+    use ExUnit.Case, async: true
+
+    test "insert new element to left of all occurrences of old element" do
+      assert multi_insert_l(2, 1, [1]) == [2, 1]
+
+      assert multi_insert_l(2, 1, [4, 1, 1, 4]) == [4, 2, 1, 2, 1, 4]
+
+      assert multi_insert_l(:chips, :fried, [:potato, :fried, :and, :fried]) ==
+        [:potato, :chips, :fried, :and, :chips, :fried]
+    end
+  end
 end

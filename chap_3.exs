@@ -51,4 +51,20 @@ defmodule Chap3 do
   def multi_rember(atom, [hd|tl]) do
     [hd|multi_rember(atom, tl)]
   end
+
+  def multi_insert_r(_new, _old, []), do: []
+  def multi_insert_r(new, old, [hd|tl]) when hd == old do
+    [old|[new|multi_insert_r(new, old, tl)]]
+  end
+  def multi_insert_r(new, old, [hd|tl]) do
+    [hd|multi_insert_r(new, old, tl)]
+  end
+
+  def multi_insert_l(_new, _old, []), do: []
+  def multi_insert_l(new, old, [hd|tl]) when hd == old do
+    [new|[old|multi_insert_l(new, old, tl)]]
+  end
+  def multi_insert_l(new, old, [hd|tl]) do
+    [hd|multi_insert_l(new, old, tl)]
+  end
 end
