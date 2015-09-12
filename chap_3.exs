@@ -67,4 +67,12 @@ defmodule Chap3 do
   def multi_insert_l(new, old, [hd|tl]) do
     [hd|multi_insert_l(new, old, tl)]
   end
+
+  def multi_subst(_new, _old, []), do: []
+  def multi_subst(new, old, [hd|tl]) when hd == old do
+    [new|multi_subst(new, old, tl)]
+  end
+  def multi_subst(new, old, [hd|tl]) do
+    [hd|multi_subst(new, old, tl)]
+  end
 end

@@ -151,4 +151,18 @@ defmodule Chap3Test do
         [:potato, :chips, :fried, :and, :chips, :fried]
     end
   end
+
+  defmodule MultiSubstTest do
+    use ExUnit.Case, async: true
+
+    test "substitute all occurrences of old element with the new element" do
+      assert multi_subst(2, 1, [1]) == [2]
+
+      assert multi_subst(2, 1, [4, 1, 1, 4]) == [4, 2, 2, 4]
+
+      assert multi_subst(:steamed, :fried, [:potato, :fried, :chips, :fried,
+                                            :onion, :fried]) ==
+        [:potato, :steamed, :chips, :steamed, :onion, :steamed]
+    end
+  end
 end
