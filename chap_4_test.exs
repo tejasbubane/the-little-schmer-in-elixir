@@ -94,4 +94,21 @@ defmodule Chap4Test do
       assert mult(0, 19) == 0
     end
   end
+
+  defmodule TupPlusTest do
+    use ExUnit.Case, async: true
+
+    test "Adds the two tups" do
+      assert tup_plus([], []) == []
+      assert tup_plus([1], [2]) == [3]
+      assert tup_plus([4, 5], [6, 7]) == [10, 12]
+      assert tup_plus([3, 6, 9, 11, 4], [8, 5, 2, 0, 7]) == [11, 11, 11, 11, 11]
+    end
+
+    test "raises exception for lists of unequal length" do
+      assert_raise(ListsLengthMismatchError,
+                   "Lists should be of equal length",
+                   fn -> tup_plus([1, 2], [3]) end)
+    end
+  end
 end
