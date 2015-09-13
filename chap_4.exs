@@ -77,6 +77,11 @@ defmodule Chap4 do
   def eq?(n, m) do
     eq?(sub_1(n), sub_1(m))
   end
+
+  def pow(_base, 0), do: 1
+  def pow(base, exponent) do
+    mult(base, pow(base, sub_1(exponent)))
+  end
 end
 
 defmodule NegativeNumberError do
