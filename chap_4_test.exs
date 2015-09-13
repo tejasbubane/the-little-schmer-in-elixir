@@ -116,4 +116,11 @@ defmodule Chap4Test do
     assert pow(2, 2) == 4
     assert pow(25, 3) == 15625
   end
+
+  test "#div divides the number" do
+    assert divide(5, 3) == 1
+    assert divide(1, 1) == 1
+    assert divide(25, 5) == 5
+    assert divide(45, 54) == 0
+  end
 end

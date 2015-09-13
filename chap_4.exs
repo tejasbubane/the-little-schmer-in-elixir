@@ -82,6 +82,13 @@ defmodule Chap4 do
   def pow(base, exponent) do
     mult(base, pow(base, sub_1(exponent)))
   end
+
+  def divide(dividend, divisor) when dividend < divisor do
+    0
+  end
+  def divide(dividend, divisor) do
+    add_1(div(sub(dividend, divisor), divisor))
+  end
 end
 
 defmodule NegativeNumberError do
