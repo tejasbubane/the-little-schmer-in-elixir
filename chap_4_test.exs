@@ -143,4 +143,19 @@ defmodule Chap4Test do
     assert rempick(3, [:hotdogs, :with, :hot, :mustard]) ==
       [:hotdogs, :with, :mustard]
   end
+
+  test "#no_nums removes all numbers from a given list" do
+    assert no_nums([]) == []
+    assert no_nums([1]) == []
+    assert no_nums([1, :some, 2, :none]) == [:some, :none]
+    assert no_nums([5, :pears, 6, :prunes, 9, :dates]) ==
+      [:pears, :prunes, :dates]
+  end
+
+  test "#all_nums extracts tup from a lat with all numbers" do
+    assert all_nums([]) == []
+    assert all_nums([1]) == [1]
+    assert all_nums([1, :some, 2, :none]) == [1, 2]
+    assert all_nums([5, :pears, 6, :prunes, 9, :dates]) == [5, 6, 9]
+  end
 end

@@ -107,6 +107,22 @@ defmodule Chap4 do
   def rempick(index, [hd|tl]) do
     [hd|rempick(sub_1(index), tl)]
   end
+
+  def no_nums([]), do: []
+  def no_nums([hd|tl]) when is_number(hd) do
+    no_nums(tl)
+  end
+  def no_nums([hd|tl]) do
+    [hd|no_nums(tl)]
+  end
+
+  def all_nums([]), do: []
+  def all_nums([hd|tl]) when is_number(hd) do
+    [hd|all_nums(tl)]
+  end
+  def all_nums([_hd|tl]) do
+    all_nums(tl)
+  end
 end
 
 defmodule NegativeNumberError do
