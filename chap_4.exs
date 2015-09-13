@@ -35,6 +35,17 @@ defmodule Chap4 do
   def add_tup([hd|tl]) do
     add(hd, add_tup(tl))
   end
+
+  # avoid recursion if either number is zero
+  def mult(n, m) when n == 0 or m == 0 do
+    0
+  end
+  def mult(n, m) when m == 1 do
+    n
+  end
+  def mult(n, m) do
+    add(n, mult(n, sub_1(m)))
+  end
 end
 
 defmodule NegativeNumberError do

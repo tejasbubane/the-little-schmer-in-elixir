@@ -82,4 +82,16 @@ defmodule Chap4Test do
       assert add_tup([12, 24, 1, 4]) == 41
     end
   end
+
+  defmodule MultTest do
+    use ExUnit.Case, async: true
+
+    test "multiplies two numbers" do
+      assert mult(5, 4) == 20
+      assert mult(13, 4) == 52
+
+      assert mult(4, 0) == 0
+      assert mult(0, 19) == 0
+    end
+  end
 end
