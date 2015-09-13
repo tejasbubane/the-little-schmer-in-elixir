@@ -102,6 +102,11 @@ defmodule Chap4 do
   def pick(index, [_hd|tl]) do
     pick(sub_1(index), tl)
   end
+
+  def rempick(1, [_hd|tl]), do: tl
+  def rempick(index, [hd|tl]) do
+    [hd|rempick(sub_1(index), tl)]
+  end
 end
 
 defmodule NegativeNumberError do

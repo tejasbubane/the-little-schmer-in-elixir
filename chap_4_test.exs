@@ -136,4 +136,11 @@ defmodule Chap4Test do
   test "#pick raises IndexError for position zero" do
     assert_raise IndexError, fn -> pick(0, [1, 2, 3, 4]) end
   end
+
+  test "#rempick returns the list with element at the given position removed" do
+    assert rempick(1, [:a]) == []
+    assert rempick(2, [:a, :b, :c]) == [:a, :c]
+    assert rempick(3, [:hotdogs, :with, :hot, :mustard]) ==
+      [:hotdogs, :with, :mustard]
+  end
 end
