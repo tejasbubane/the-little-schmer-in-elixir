@@ -71,4 +71,15 @@ defmodule Chap4Test do
       refute tup?([1, [2, 3], 4, 5])
     end
   end
+
+  defmodule AddTupleTest do
+    use ExUnit.Case, async: true
+
+    test "adds all elements in the tuple" do
+      assert add_tup([]) == 0
+      assert add_tup([1]) == 1
+      assert add_tup([1, 2, 3, 4, 5]) == 15
+      assert add_tup([12, 24, 1, 4]) == 41
+    end
+  end
 end

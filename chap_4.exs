@@ -30,6 +30,11 @@ defmodule Chap4 do
     tup?(tl)
   end
   def tup?(_list), do: false
+
+  def add_tup([]), do: 0
+  def add_tup([hd|tl]) do
+    add(hd, add_tup(tl))
+  end
 end
 
 defmodule NegativeNumberError do
