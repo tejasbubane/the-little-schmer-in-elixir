@@ -158,4 +158,10 @@ defmodule Chap4Test do
     assert all_nums([1, :some, 2, :none]) == [1, 2]
     assert all_nums([5, :pears, 6, :prunes, 9, :dates]) == [5, 6, 9]
   end
+
+  test "#occur counts the number of times an element occurs in a list" do
+    assert occur(1, []) == 0
+    assert occur(2, [2]) == 1
+    assert occur(3, [1, 3, 1, 5, 3]) == 2
+  end
 end

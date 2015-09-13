@@ -123,6 +123,14 @@ defmodule Chap4 do
   def all_nums([_hd|tl]) do
     all_nums(tl)
   end
+
+  def occur(_atom, []), do: 0
+  def occur(atom, [hd|tl]) when atom == hd do
+    add_1(occur(atom, tl))
+  end
+  def occur(atom, [_hd|tl]) do
+    occur(atom, tl)
+  end
 end
 
 defmodule NegativeNumberError do
