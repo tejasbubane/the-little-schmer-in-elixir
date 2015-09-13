@@ -57,6 +57,26 @@ defmodule Chap4 do
   def tup_plus([hd_1|tl_1], [hd_2|tl_2]) do
     [add(hd_1, hd_2)|tup_plus(tl_1, tl_2)]
   end
+
+  def greater_than?(0, _m), do: false
+  def greater_than?(_n, 0), do: true
+  def greater_than?(n, m) do
+    greater_than?(sub_1(n), sub_1(m))
+  end
+
+  def less_than?(_n, 0), do: false
+  def less_than?(0, _m), do: true
+  def less_than?(n, m) do
+    less_than?(sub_1(n), sub_1(m))
+  end
+
+  def eq?(0, 0), do: true
+  def eq?(n, m) when n == 0 or m == 0 do
+    false
+  end
+  def eq?(n, m) do
+    eq?(sub_1(n), sub_1(m))
+  end
 end
 
 defmodule NegativeNumberError do

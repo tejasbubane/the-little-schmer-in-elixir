@@ -110,4 +110,48 @@ defmodule Chap4Test do
       assert tup_plus([4, 9, 1, 5], [0, 6]) == [4, 15, 1, 5]
     end
   end
+
+  defmodule GreaterThanTest do
+    use ExUnit.Case, async: true
+
+    test "Compares the two numbers to check if the one is greater than other" do
+      assert greater_than?(1, 0)
+      assert greater_than?(3, 2)
+      assert greater_than?(12435786, 124556)
+
+      refute greater_than?(0, 0)
+      refute greater_than?(4, 4)
+      refute greater_than?(0, 1)
+      refute greater_than?(13, 1212)
+    end
+  end
+
+  defmodule LessThanTest do
+    use ExUnit.Case, async: true
+
+    test "Compares the two numbers to check if the one is lesser than other" do
+      assert less_than?(0, 1)
+      assert less_than?(2, 3)
+      assert less_than?(124556, 12435786)
+
+      refute less_than?(0, 0)
+      refute less_than?(4, 4)
+      refute less_than?(1, 0)
+      refute less_than?(1212, 13)
+    end
+  end
+
+  defmodule EqualityTest do
+    use ExUnit.Case, async: true
+
+    test "Compares the two numbers to check both are equal" do
+      assert eq?(0, 0)
+      assert eq?(2, 2)
+      assert eq?(126, 126)
+
+      refute eq?(1, 0)
+      refute eq?(5, 4)
+      refute eq?(156, 125)
+    end
+  end
 end
