@@ -18,7 +18,6 @@ defmodule Chap4Test do
 
   test "#sub_1 raises exception for negative numbers" do
     assert_raise(NegativeNumberError,
-                 "There are no negative numbers in this system",
                  fn -> sub_1(0) end)
   end
 
@@ -39,7 +38,6 @@ defmodule Chap4Test do
 
   test "#sub raises error for negative numbers" do
     assert_raise(NegativeNumberError,
-                 "There are no negative numbers in this system",
                  fn -> sub(18, 25) end)
   end
 
@@ -128,5 +126,14 @@ defmodule Chap4Test do
     assert len([]) == 0
     assert len([4]) == 1
     assert len([5, 6, 2, 1]) == 4
+  end
+
+  test "#pick returns element at particular position in a list" do
+    assert pick(1, [:a]) == :a
+    assert pick(5, [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == 5
+  end
+
+  test "#pick raises IndexError for position zero" do
+    assert_raise IndexError, fn -> pick(0, [1, 2, 3, 4]) end
   end
 end

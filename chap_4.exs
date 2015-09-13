@@ -94,8 +94,20 @@ defmodule Chap4 do
   def len([_hd|tl]) do
     add_1(len(tl))
   end
+
+  def pick(0, _lst), do: raise IndexError
+  def pick(index, [hd|_tl]) when index == 1 do
+    hd
+  end
+  def pick(index, [_hd|tl]) do
+    pick(sub_1(index), tl)
+  end
 end
 
 defmodule NegativeNumberError do
   defexception message: "There are no negative numbers in this system"
+end
+
+defmodule IndexError do
+  defexception message: "Index starts from 1"
 end
