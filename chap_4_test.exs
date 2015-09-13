@@ -23,7 +23,9 @@ defmodule Chap4Test do
     end
 
     test "raises exception" do
-      assert_raise(FunctionClauseError, fn -> sub_1(0) end)
+      assert_raise(NegativeNumberError,
+                   "There are no negative numbers in this system",
+                   fn -> sub_1(0) end)
     end
   end
 
@@ -33,6 +35,28 @@ defmodule Chap4Test do
     test "checks if the argument is a zero" do
       assert zero?(0)
       refute zero?(1492)
+    end
+  end
+
+  defmodule AddTest do
+    use ExUnit.Case, async: true
+
+    test "adds two numbers" do
+      assert add(1, 2) == 3
+      assert add(12, 13) == 25
+    end
+  end
+
+  defmodule SubTest do
+    use ExUnit.Case, async: true
+
+    test "adds two numbers" do
+      assert sub(14, 3) == 11
+      assert sub(17, 9) == 8
+
+      assert_raise(NegativeNumberError,
+                   "There are no negative numbers in this system",
+                   fn -> sub(18, 25) end)
     end
   end
 end
