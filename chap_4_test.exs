@@ -123,4 +123,10 @@ defmodule Chap4Test do
     assert divide(25, 5) == 5
     assert divide(45, 54) == 0
   end
+
+  test "#len returns the length of a list" do
+    assert len([]) == 0
+    assert len([4]) == 1
+    assert len([5, 6, 2, 1]) == 4
+  end
 end

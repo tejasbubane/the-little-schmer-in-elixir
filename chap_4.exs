@@ -89,6 +89,11 @@ defmodule Chap4 do
   def divide(dividend, divisor) do
     add_1(div(sub(dividend, divisor), divisor))
   end
+
+  def len([]), do: 0
+  def len([_hd|tl]) do
+    add_1(len(tl))
+  end
 end
 
 defmodule NegativeNumberError do
