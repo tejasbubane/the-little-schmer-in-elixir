@@ -4,7 +4,7 @@ defmodule Chap4 do
   def sub_1(number) when number > 0 do
     number - 1
   end
-  def sub_1(number) do
+  def sub_1(_number) do
     raise NegativeNumberError
   end
 
@@ -22,6 +22,14 @@ defmodule Chap4 do
   def sub(n, m) do
     sub(sub_1(n), sub_1(m))
   end
+
+  # A tuple here is a list of numbers only
+  # and has nothing to do with elixr tuples.
+  def tup?([]), do: true
+  def tup?([hd|tl]) when is_number(hd) do
+    tup?(tl)
+  end
+  def tup?(_list), do: false
 end
 
 defmodule NegativeNumberError do

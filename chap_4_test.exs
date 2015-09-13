@@ -59,4 +59,16 @@ defmodule Chap4Test do
                    fn -> sub(18, 25) end)
     end
   end
+
+  defmodule TupleTest do
+    use ExUnit.Case, async: true
+
+    test "checks if the list is a tuple" do
+      assert tup?([])
+      assert tup?([1, 2, 3, 4, 5])
+
+      refute tup?([:this, :is, :not, :a, :tuple])
+      refute tup?([1, [2, 3], 4, 5])
+    end
+  end
 end
