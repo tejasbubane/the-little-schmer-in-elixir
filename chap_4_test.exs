@@ -105,10 +105,9 @@ defmodule Chap4Test do
       assert tup_plus([3, 6, 9, 11, 4], [8, 5, 2, 0, 7]) == [11, 11, 11, 11, 11]
     end
 
-    test "raises exception for lists of unequal length" do
-      assert_raise(ListsLengthMismatchError,
-                   "Lists should be of equal length",
-                   fn -> tup_plus([1, 2], [3]) end)
+    test "works for tups of any length" do
+      assert tup_plus([1, 2], [3]) == [4, 2]
+      assert tup_plus([4, 9, 1, 5], [0, 6]) == [4, 15, 1, 5]
     end
   end
 end

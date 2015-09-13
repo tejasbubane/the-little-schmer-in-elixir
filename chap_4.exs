@@ -48,8 +48,11 @@ defmodule Chap4 do
   end
 
   def tup_plus([], []), do: []
-  def tup_plus(lst_1, lst_2) when lst_1 == [] or lst_2 == [] do
-    raise ListsLengthMismatchError
+  def tup_plus(lst_1, lst_2) when lst_1 == [] do
+    lst_2
+  end
+  def tup_plus(lst_1, lst_2) when lst_2 == [] do
+    lst_1
   end
   def tup_plus([hd_1|tl_1], [hd_2|tl_2]) do
     [add(hd_1, hd_2)|tup_plus(tl_1, tl_2)]
@@ -58,8 +61,4 @@ end
 
 defmodule NegativeNumberError do
   defexception message: "There are no negative numbers in this system"
-end
-
-defmodule ListsLengthMismatchError do
-  defexception message: "Lists should be of equal length"
 end
